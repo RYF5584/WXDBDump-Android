@@ -1,0 +1,87 @@
+name: Bug report
+description: Something does not work the way the README says it should
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before filing: please check the FAQ in the README, and make sure you are on the
+        latest release.
+
+        **Do not paste keys, wxid, phone numbers, chat content or account directory names.**
+        Redact them. A log from `tools/logcat.sh` already avoids key material.
+
+  - type: dropdown
+    id: mode
+    attributes:
+      label: Extraction mode
+      options:
+        - Root mode
+        - Xposed mode
+        - Both
+        - Not sure
+    validations:
+      required: true
+
+  - type: input
+    id: android
+    attributes:
+      label: Android version and device
+      placeholder: e.g. Android 14, OnePlus 12
+    validations:
+      required: true
+
+  - type: input
+    id: wechat
+    attributes:
+      label: WeChat version
+      placeholder: e.g. 8.0.72
+    validations:
+      required: true
+
+  - type: input
+    id: app
+    attributes:
+      label: WXDB-Dump-Android version
+      description: Shown on the settings screen, or in the file name you downloaded.
+      placeholder: e.g. v1.0.0
+    validations:
+      required: true
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: What you did, what you expected, what you got instead.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Open the app
+        2. Pick Xposed mode
+        3. Select all databases and export
+        4. See ...
+    validations:
+      required: true
+
+  - type: input
+    id: failing-database
+    attributes:
+      label: Does it fail on one database or all of them
+      description: If the export report names specific files, list them here.
+      placeholder: e.g. all of them, or only FTS5IndexMicroMsg_encrypt.db
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Log
+      description: |
+        Run `./tools/logcat.sh`, reproduce, then press Ctrl-C. Paste the file it prints.
+        It contains paths and key lengths only.
+      render: text
+    validations:
+      required: false

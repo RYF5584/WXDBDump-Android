@@ -1,0 +1,16 @@
+# Normalise line endings in the repository so a Windows checkout cannot turn the shell
+# helpers into CRLF files that fail with "bad interpreter".
+* text=auto eol=lf
+
+*.sh            text eol=lf
+gradlew         text eol=lf
+*.bat           text eol=crlf
+
+# Binary assets: never diff or merge these.
+*.png           binary
+*.jar           binary
+*.keystore      binary
+*.jks           binary
+
+# Generated or vendored files: keep them out of diffs and language stats.
+gradle/wrapper/gradle-wrapper.jar  binary

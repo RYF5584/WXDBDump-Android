@@ -1,0 +1,20 @@
+.gradle/
+build/
+**/build/
+bin/
+out/
+.kotlin/
+.idea/
+*.iml
+captures/
+.externalNativeBuild/
+.cxx/
+*.log
+.DS_Store
+local.properties
+keystore.properties
+*.jks
+*.keystore
+
+# Local assistant workspace (notes, logs) — never commit
+.workbuddy/

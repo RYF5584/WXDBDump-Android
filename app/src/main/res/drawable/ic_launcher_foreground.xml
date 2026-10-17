@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Launcher foreground: a WeChat bubble over a database cylinder, drawn flat.
+  Solid colours only, so it stays sharp at any size.
+
+  The cylinder geometry matters:
+  - 22 by 24 keeps the ratio near 1.09; flatter reads as a bowl
+  - the grooves are the lower arc of an ellipse; straight lines look like tape
+  - the top face is one step lighter than the body, or it reads as a lid
+  The body uses the background colour, so the bubble's white defines its edge.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <group android:translateY="-2">
+
+        <!-- Bubble: rounded rectangle with a tail at the lower left -->
+        <path
+            android:fillColor="#FFFFFFFF"
+            android:pathData="M39,27h30a14,14 0 0 1 14,14v16a14,14 0 0 1 -14,14H54L40,86V71h-1a14,14 0 0 1 -14,-14V41a14,14 0 0 1 14,-14z" />
+
+        <!-- Cylinder body, in the background colour -->
+        <path android:fillColor="#FF07C160" android:pathData="M43,36h22v24h-22z" />
+        <!-- Cylinder base -->
+        <path android:fillColor="#FF07C160"
+            android:pathData="M43,60a11,3.8 0 1 0 22,0a11,3.8 0 1 0 -22,0z" />
+        <!-- Cylinder top face, one step lighter -->
+        <path android:fillColor="#FF0BC666"
+            android:pathData="M43,36a11,3.8 0 1 0 22,0a11,3.8 0 1 0 -22,0z" />
+
+        <!-- Two grooves -->
+        <path
+            android:fillColor="#00000000"
+            android:strokeColor="#FFFFFFFF"
+            android:strokeWidth="1.4"
+            android:pathData="M43,44a11,3.8 0 0 0 22,0" />
+        <path
+            android:fillColor="#00000000"
+            android:strokeColor="#FFFFFFFF"
+            android:strokeWidth="1.4"
+            android:pathData="M43,52a11,3.8 0 0 0 22,0" />
+    </group>
+</vector>

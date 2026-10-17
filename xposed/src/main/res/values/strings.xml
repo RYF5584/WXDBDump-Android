@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="xposed_description">将微信数据库导出为明文 SQLite。作者 GitHub: RYF5584 · 微信: RSCompanyCEO · QQ: 1043695584 · Telegram: ryf5584</string>
+</resources>

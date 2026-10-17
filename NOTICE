@@ -1,0 +1,17 @@
+# Third-party components
+
+WXDB-Dump-Android itself is released under the Apache License 2.0 — see [LICENSE](LICENSE).
+
+| Component | Used for | License |
+|---|---|---|
+| [AndroidX / Jetpack Compose](https://developer.android.com/jetpack) | UI, navigation, DataStore | Apache-2.0 |
+| [Material 3](https://m3.material.io/) | Design system | Apache-2.0 |
+| [YukiHookAPI](https://github.com/HighCapable/YukiHookAPI) | Xposed module framework | Apache-2.0 |
+| [KavaRef](https://github.com/HighCapable/KavaRef) | Reflection DSL used by the module | Apache-2.0 |
+| [MMKV](https://github.com/Tencent/MMKV) | Reading account MMKV stores | BSD-3-Clause |
+| [simple-icons](https://github.com/simple-icons/simple-icons) | Brand icons in the author block | CC0-1.0 |
+
+## Notes
+
+* No SQLCipher / WCDB binary is bundled. Root-mode decryption is implemented directly on
+  top of `javax.crypto`; see `payload/.../crypto/SqlCipherPages.java`.

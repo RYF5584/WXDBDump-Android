@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">WXDB-Dump</string>
+    <string name="app_subtitle">WeChat DB Studio</string>
+
+    <!-- Common -->
+    <string name="common_retry">Retry</string>
+    <string name="common_refresh">Refresh</string>
+    <string name="common_settings">Settings</string>
+    <string name="common_back">Back</string>
+    <string name="common_cancel">Cancel</string>
+    <string name="common_confirm">Done</string>
+    <string name="common_open">Open</string>
+    <string name="common_select_all">Select all</string>
+    <string name="common_clear_selection">Clear</string>
+    <string name="common_loading">Loading…</string>
+
+    <!-- Check screen -->
+    <string name="check_subtitle">Export WeChat databases as plaintext</string>
+    <string name="check_title">Checking the Xposed module…</string>
+    <string name="check_desc">Detects whether the module is injected into WeChat</string>
+    <string name="check_card_xposed">Xposed module</string>
+    <string name="check_state_checking">Checking…</string>
+    <string name="check_state_available">Active</string>
+    <string name="check_state_unavailable">Inactive</string>
+    <string name="check_elapsed">%.1f s elapsed</string>
+    <string name="check_wechat_version">WeChat installed · v%1$s</string>
+    <string name="check_wechat_missing">WeChat not found</string>
+    <string name="check_xposed_ok_desc">Injected into WeChat — ready to export</string>
+    <string name="check_xposed_no_wechat">WeChat is not running: open it once and retry</string>
+    <string name="check_xposed_timeout">Module inactive, or the “WeChat” scope is not ticked</string>
+    <string name="check_xposed_token">Module version mismatch — reinstall the APK</string>
+    <string name="check_action_enter">Get started</string>
+    <string name="check_action_lsposed">Open LSPosed</string>
+    <string name="check_guide">Enable steps</string>
+    <string name="check_guide_body">1. Enable this module in LSPosed\n2. Tick the “WeChat” scope\n3. Force-stop WeChat and reopen it\n4. Come back and tap Retry</string>
+
+    <!-- Accounts -->
+    <string name="accounts_title">Choose an account</string>
+    <string name="accounts_summary">%1$d account(s) · %2$s total</string>
+    <string name="accounts_search">Search nickname / WeChat ID</string>
+    <string name="accounts_empty_title">No WeChat account found</string>
+    <string name="accounts_empty_desc">Make sure WeChat has signed in and the module is injected</string>
+    <string name="accounts_dbs_meta">%1$d databases · %2$s</string>
+    <string name="accounts_need_activate">Switch to this account once in WeChat to capture its key</string>
+    <string name="accounts_uin_source">uin source: %1$s</string>
+    <string name="accounts_loading_avatar">Loading avatar…</string>
+    <string name="accounts_hist">Previous account</string>
+
+    <!-- Databases -->
+    <string name="databases_title">Databases</string>
+    <string name="databases_total">%1$d databases</string>
+    <string name="databases_total_size">%1$s total</string>
+    <string name="databases_selected">%1$d selected</string>
+    <string name="databases_encrypted">Encrypted</string>
+    <string name="databases_plaintext">Plaintext</string>
+    <string name="databases_wal">WAL</string>
+    <string name="databases_empty_title">No exportable database for this account</string>
+    <string name="databases_empty_desc">Make sure WeChat has signed in and used this account</string>
+    <string name="databases_export">Export</string>
+    <string name="databases_export_n">%1$d selected · %2$s · Export</string>
+    <string name="databases_sort">Sort</string>
+    <string name="databases_sort_name">By name</string>
+    <string name="databases_sort_size">By size</string>
+    <string name="databases_no_key">Key not captured</string>
+    <string name="databases_need_key_hint">The account key has not been captured yet. Just open WeChat once — the module grabs it at startup, and then every encrypted database of this account can be decrypted.</string>
+    <string name="databases_search">Search databases (name or purpose, e.g. chat / moments / wallet)</string>
+    <string name="databases_search_clear">Clear</string>
+    <string name="databases_search_result">%1$d of %2$d matched</string>
+    <string name="databases_search_empty">No matching database</string>
+    <string name="databases_search_empty_desc">Try a shorter keyword such as “chat”, “moments”, “wallet” or “index”.</string>
+    <string name="databases_output_to">Output to: %1$s</string>
+
+    <!-- Export -->
+    <string name="export_title">Export</string>
+    <string name="export_files_progress">%1$d / %2$d files</string>
+    <string name="export_bytes">%1$s / %2$s</string>
+    <string name="export_speed">%1$s/s</string>
+    <string name="export_elapsed">%1$s elapsed</string>
+    <string name="export_eta">~%1$s left</string>
+    <string name="export_stat_done">Done</string>
+    <string name="export_stat_failed">Failed</string>
+    <string name="export_stat_pending">Pending</string>
+    <string name="export_open_dir">Open output folder</string>
+    <string name="export_open_dir_hint">Pick an app to open this folder with</string>
+    <string name="export_retry_failed">Retry failed</string>
+    <string name="export_cancel">Cancel</string>
+    <string name="export_done_title">Export finished</string>
+    <string name="export_done_summary">%1$d done · %2$d failed · %3$s · %4$s</string>
+    <string name="export_verified">Verified</string>
+    <string name="export_dir_path">Folder: %1$s</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Settings</string>
+    <string name="settings_section_output">Output location</string>
+    <string name="settings_output_root">Output root folder</string>
+    <string name="settings_output_default">Default folder</string>
+    <string name="settings_output_hint">Files are written to “root / account / xxx.db”. Set it to /Download and you get /Download/wxid_xxx/.</string>
+    <string name="settings_output_apply">Apply</string>
+    <string name="settings_output_reset">Reset</string>
+    <string name="settings_output_use_default">Use default folder</string>
+    <string name="settings_all_files_title">“All files access” is required</string>
+    <string name="settings_all_files_desc">On Android 11+ writing to a custom folder on internal storage needs this permission. Without it the export falls back to the app-private folder.</string>
+    <string name="settings_all_files_grant">Grant</string>
+    <string name="settings_all_files_ok">“All files access” granted</string>
+    <string name="settings_fallback_warning">No “all files access” permission — exports go to the app-private folder: %1$s</string>
+    <string name="settings_section_defaults">Export defaults</string>
+    <string name="settings_export_wal">Include -wal / -shm</string>
+    <string name="settings_verify">Verify after export</string>
+    <string name="settings_parallel">Parallel tasks</string>
+    <string name="settings_section_appearance">Appearance</string>
+    <string name="settings_theme">Theme</string>
+    <string name="settings_theme_system">Follow system</string>
+    <string name="settings_theme_light">Light</string>
+    <string name="settings_theme_dark">Dark</string>
+    <string name="settings_dynamic_color">Dynamic color</string>
+    <string name="settings_reduce_motion">Reduce motion</string>
+    <string name="settings_section_language">Language</string>
+    <string name="settings_lang_system">Follow system</string>
+    <string name="settings_lang_zh">简体中文</string>
+    <string name="settings_lang_en">English</string>
+    <string name="settings_section_diag">Diagnostics</string>
+    <string name="settings_diag_loopback">Module channel</string>
+    <string name="settings_diag_connected">Connected %1$s</string>
+    <string name="settings_diag_disconnected">Not connected</string>
+    <string name="settings_selftest">Run decryption self-test</string>
+    <string name="settings_reset">Reset all settings</string>
+    <string name="settings_section_about">About</string>
+    <string name="settings_version">Version %1$s</string>
+    <string name="settings_disclaimer">This tool only exports data of your own account on your own device. Follow local laws and keep the exported data safe.</string>
+
+    <!-- Errors -->
+    <string name="err_xposed_inactive">Xposed module is not active</string>
+    <string name="err_xposed_inactive_desc">Enable this module in LSPosed, tick the “WeChat” scope, then force-stop and reopen WeChat.</string>
+    <string name="err_no_dir_permission">Cannot write to the output folder</string>
+    <string name="err_no_dir_permission_desc">Grant “all files access”, or change the output root to the app-private folder.</string>
+
+    <!-- Footer -->
+    <string name="footer_notice">For learning and personal data export only.</string>
+    <string name="open_folder_title">Open with</string>
+    <string name="export_need_permission">The output folder needs the “All files access” permission</string>
+    <string name="export_failed_read">Read failed</string>
+    <string name="export_failed_decrypt">Module failed to decrypt</string>
+    <string name="export_failed_decrypt_root">Decryption failed in the app</string>
+    <string name="export_failed_dir">Cannot create the output folder (missing “All files access”)</string>
+    <string name="selftest_no_account">No account available</string>
+    <string name="selftest_no_encrypted">No encrypted database in this account</string>
+    <string name="selftest_account">Account: %1$s</string>
+    <string name="selftest_target">Database: %1$s (%2$s)</string>
+    <string name="selftest_ok">✅ Exported: %1$s in %2$d ms</string>
+    <string name="selftest_ok_head">   Header %1$s (SQLite format 3 ✔)</string>
+    <string name="selftest_not_sqlite">⚠️ Exported, but the header is not SQLite: %1$s</string>
+    <string name="selftest_skipped">⊘ Skipped: %1$s</string>
+    <string name="selftest_failed">❌ Failed: %1$s</string>
+    <string name="selftest_head">   Header %1$s</string>
+    <string name="selftest_error">❌ Self-test error: %1$s</string>
+    <string name="root_no_device_id">Cannot read the device id (KeyInfo.bin), so the key cannot be derived</string>
+    <string name="root_no_uin">Cannot recover this account’s uin, so the key cannot be derived offline. If this is an old or migrated account its directory may not follow the usual naming, which root mode cannot work with — use Xposed mode instead</string>
+    <string name="root_no_key">Cannot derive the key for this account</string>
+    <string name="root_denied">Root access was not granted</string>
+
+    <string name="mode_title">Choose extraction method</string>
+    <string name="mode_note">Both produce identical output — pick either one.</string>
+    <string name="mode_root">Root mode</string>
+    <string name="mode_root_desc">Key derived offline from device id + uin, decrypted in-app.\nNo WeChat process needed, no restart.</string>
+    <string name="mode_root_tag">Available</string>
+    <string name="mode_xposed">Xposed mode</string>
+    <string name="mode_xposed_desc">Decryption delegated to WeChat itself, zero guesswork.\nRequires WeChat to be running.</string>
+    <string name="mode_xposed_tag">Active</string>
+    <string name="mode_only_root">Only Root is available — selected automatically</string>
+    <string name="mode_only_xposed">Only Xposed is available — selected automatically</string>
+    <string name="mode_switch">Change extraction method</string>
+    <string name="check_card_root">Root access</string>
+    <string name="check_root_ok_desc">Root granted — keys derived offline and decrypted in-app</string>
+    <string name="check_root_denied_desc">Root not granted yet (not authorized or denied)</string>
+    <string name="root_blocked">Root granted, but WeChat data dir is not visible (check KernelSU/Magisk scope settings)</string>
+    <string name="export_failed_dir_io">Cannot create the export folder (storage temporarily unavailable, please retry)</string>
+    <string name="root_not_granted">Root not granted yet. Enable this app in KernelSU / Magisk first.</string>
+    <string name="check_open_wechat">Open WeChat</string>
+    <string name="check_wechat_not_running">WeChat is not running. Tap below to launch it — the hook loads once WeChat starts.</string>
+    <string name="check_activate_module">Activate module</string>
+    <string name="check_module_inactive">Module inactive: enable it in LSPosed and make sure WeChat is in scope.</string>
+    <string name="author_title">Author</string>
+    <string name="app_description">WeChat DB Dump · Export WeChat databases as plaintext\nAuthor  WeChat: RSCompanyCEO  QQ: 1043695584  Telegram: ryf5584  GitHub: RYF5584</string>
+    <string name="author_copied">Copied %1$s</string>
+    <string name="export_failed_timeout">Export timed out — WeChat may be writing to this database, please retry</string>
+    <string name="export_skip_optional">Optional database (cache/stats/rebuildable index), skipped automatically</string>
+    <string name="export_skipped_note">%1$d optional databases were skipped. Their content is derived from the main database, so nothing is missing.</string>
+    <string name="export_stat_skipped">Skipped</string>
+</resources>

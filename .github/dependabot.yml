@@ -1,0 +1,25 @@
+# Keeps the Gradle build and the two GitHub Actions current. Android dependency versions
+# are managed in gradle/libs.versions.toml, which Dependabot edits directly.
+version: 2
+updates:
+  - package-ecosystem: gradle
+    directory: /
+    schedule:
+      interval: monthly
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "deps"
+    groups:
+      # One pull request for routine bumps instead of a dozen small ones.
+      gradle:
+        patterns: ["*"]
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    commit-message:
+      prefix: "ci"
+    groups:
+      actions:
+        patterns: ["*"]

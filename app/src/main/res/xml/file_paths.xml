@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Paths exposed through FileProvider.
+  The export directory defaults to WeChat-DB-Dump in internal storage and can be changed
+  to /Download. Both fall under external-path, which is what lets the open-folder action
+  build a content:// URI with a temporary read grant instead of a file:// URI.
+-->
+<paths>
+    <external-path name="external_root" path="." />
+    <external-files-path name="app_external" path="." />
+    <files-path name="internal" path="." />
+    <cache-path name="cache" path="." />
+</paths>

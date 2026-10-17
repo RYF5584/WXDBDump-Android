@@ -1,0 +1,5 @@
+-keep class com.tencent.wcdb.** { *; }
+-keep class com.tencent.mm.storagebase.** { *; }
+-keep class io.github.ryf5584.wxdbdump.payload.** { *; }
+-dontwarn com.tencent.**
+-dontwarn de.robv.android.xposed.**

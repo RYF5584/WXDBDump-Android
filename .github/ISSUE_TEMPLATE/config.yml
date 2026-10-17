@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Usage questions and setup help
+    url: https://github.com/RYF5584/WXDBDump-Android#常见问题
+    about: The FAQ covers inactive root, an inactive module, and single databases that fail.
+  - name: Security issue
+    url: https://github.com/RYF5584/WXDBDump-Android/security/advisories/new
+    about: Report privately. Do not open a public issue for anything that could expose data.

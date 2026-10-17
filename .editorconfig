@@ -1,0 +1,29 @@
+# Editor defaults, so a contributor's formatting matches the project without a
+# formatter config. Keep this list short: it only covers things that actually differ.
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 4
+
+[*.{kt,kts}]
+# Kotlin style guide: 4 spaces, no wildcard imports.
+ij_kotlin_allow_trailing_comma = true
+ij_kotlin_allow_trailing_comma_on_call_site = true
+
+[*.{java,xml}]
+indent_size = 4
+
+[*.{yml,yaml,json,toml}]
+indent_size = 2
+
+[*.md]
+# Trailing spaces are meaningful in Markdown: two of them force a line break.
+trim_trailing_whitespace = false
+
+[*.{sh,bash}]
+indent_size = 2

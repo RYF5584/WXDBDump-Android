@@ -1,0 +1,130 @@
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+    inputs:
+      version:
+        # A branch ref carries no tag, so the version has to be supplied by hand here.
+        description: "Version to build, for example 1.0.0"
+        required: true
+        type: string
+
+# Required to create the release and attach the APK.
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Build and publish APK
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+
+    steps:
+      - name: Check out
+        uses: actions/checkout@v4
+
+      - name: Validate Gradle wrapper
+        uses: gradle/actions/wrapper-validation@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+
+      # The version is the tag name without its leading v. Both forms are produced here so the
+      # build and the release agree: Gradle wants 1.2.3, the release wants v1.2.3.
+      - name: Resolve version
+        id: ver
+        run: |
+          raw="${{ github.event.inputs.version || github.ref_name }}"
+          name="${raw#v}"
+          echo "name=$name" >> "$GITHUB_OUTPUT"
+          echo "tag=v$name" >> "$GITHUB_OUTPUT"
+
+      # A CI runner has no ~/.android/debug.keystore. Falling back to debug signing there would
+      # make AGP generate a fresh key on every run, so each release would carry a different
+      # signature and none of them could be installed over another. Fail instead.
+      #
+      # Create the four secrets named below; the README explains how.
+      - name: Prepare signing key
+        env:
+          KEYSTORE_BASE64: ${{ secrets.RELEASE_KEYSTORE_BASE64 }}
+        run: |
+          if [ -z "$KEYSTORE_BASE64" ]; then
+            echo "::error::RELEASE_KEYSTORE_BASE64 is not set. A release signed with an unstable key cannot be installed over the previous one."
+            exit 1
+          fi
+          echo "$KEYSTORE_BASE64" | base64 -d > "$RUNNER_TEMP/release.jks"
+          echo "RELEASE_STORE_FILE=$RUNNER_TEMP/release.jks" >> "$GITHUB_ENV"
+
+      - name: Build APK
+        env:
+          RELEASE_STORE_PASSWORD: ${{ secrets.RELEASE_STORE_PASSWORD }}
+          RELEASE_KEY_ALIAS: ${{ secrets.RELEASE_KEY_ALIAS }}
+          RELEASE_KEY_PASSWORD: ${{ secrets.RELEASE_KEY_PASSWORD }}
+        run: >-
+          ./gradlew :app:assembleRelease --no-daemon --stacktrace
+          -PversionTag=${{ steps.ver.outputs.name }}
+
+      - name: Collect APK
+        run: |
+          mkdir -p out
+          cp app/build/outputs/apk/release/WXDB-Dump-Android-release.apk \
+             "out/WXDB-Dump-Android-${{ steps.ver.outputs.name }}.apk"
+          ls -lh out
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: WXDB-Dump-Android-${{ steps.ver.outputs.name }}
+          path: out/*.apk
+          if-no-files-found: error
+
+      # Runs on a tag push and on a manual dispatch. tag_name is what makes a dispatch produce
+      # the tag: GitHub creates it when the release is published, so the two never drift apart.
+      - name: Publish release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.ver.outputs.tag }}
+          name: WXDB-Dump-Android ${{ steps.ver.outputs.name }}
+          files: out/*.apk
+          draft: false
+          # Let GitHub list the commits since the previous tag, so each release page is
+          # actually different from the last one.
+          generate_release_notes: true
+          body: |
+            ## WXDB-Dump-Android ${{ steps.ver.outputs.name }}
+
+            ### Install
+            Download `WXDB-Dump-Android-${{ steps.ver.outputs.name }}.apk` below and install it.
+
+            ### Before you start
+            1. **LSPosed** installed; the Zygisk build from KernelSU or Magisk both work
+            2. Module enabled in LSPosed with **WeChat** in scope
+            3. Force-stop WeChat, then open it once more
+            4. Open this app, tap Start, pick an account and the databases, then export
+
+            Root mode is also supported and needs WeChat neither running nor restarted.
+
+            ### Requirements
+
+            | Item | Requirement |
+            |---|---|
+            | Android | 8.0 (API 26) or newer |
+            | WeChat | **Android** WeChat 8.0.x, with at least one account signed in |
+            | Root mode | KernelSU, Magisk or SuperSU with root granted to this app |
+            | Xposed mode | LSPosed with this module enabled and WeChat in scope |
+
+            ### Output
+            `Internal storage/WeChat-DB-Dump/<account>/`, changeable in settings.
+
+            > For research and personal data export only. Do not use it for anything unlawful.

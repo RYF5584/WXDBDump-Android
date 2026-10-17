@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">WXDB-Dump</string>
+    <string name="app_subtitle">WeChat DB Studio</string>
+
+    <!-- 通用 -->
+    <string name="common_retry">重试</string>
+    <string name="common_refresh">刷新</string>
+    <string name="common_settings">设置</string>
+    <string name="common_back">返回</string>
+    <string name="common_cancel">取消</string>
+    <string name="common_confirm">完成</string>
+    <string name="common_open">打开</string>
+    <string name="common_select_all">全选</string>
+    <string name="common_clear_selection">清除选择</string>
+    <string name="common_loading">加载中…</string>
+
+    <!-- 启动检测页 -->
+    <string name="check_subtitle">微信数据库明文导出</string>
+    <string name="check_title">正在检查 Xposed 模块…</string>
+    <string name="check_desc">自动检测模块是否已注入微信进程</string>
+    <string name="check_card_xposed">Xposed 模块</string>
+    <string name="check_state_checking">检测中…</string>
+    <string name="check_state_available">已激活</string>
+    <string name="check_state_unavailable">未激活</string>
+    <string name="check_elapsed">已用时 %1$.1f 秒</string>
+    <string name="check_wechat_version">微信已安装 · v%1$s</string>
+    <string name="check_wechat_missing">未检测到微信</string>
+    <string name="check_xposed_ok_desc">已挂载到微信进程，可以开始导出</string>
+    <string name="check_xposed_no_wechat">微信未运行：打开一次微信后重试</string>
+    <string name="check_xposed_timeout">模块未生效，或作用域没勾「微信」</string>
+    <string name="check_xposed_token">模块版本不匹配，请重装 APK</string>
+    <string name="check_action_enter">开始使用</string>
+    <string name="check_action_lsposed">打开 LSPosed</string>
+    <string name="check_guide">启用步骤</string>
+    <string name="check_guide_body">1. 在 LSPosed 管理器中启用本模块\n2. 作用域勾选「微信」\n3. 强制停止微信，再重新打开\n4. 回到本页点「重试」</string>
+
+    <!-- 账号页 -->
+    <string name="accounts_title">选择账号</string>
+    <string name="accounts_summary">%1$d 个账号 · 共 %2$s</string>
+    <string name="accounts_search">搜索昵称 / 微信号</string>
+    <string name="accounts_empty_title">未找到微信账号</string>
+    <string name="accounts_empty_desc">请确认微信已登录过账号，并且模块已注入微信进程</string>
+    <string name="accounts_dbs_meta">%1$d 个数据库 · %2$s</string>
+    <string name="accounts_need_activate">需在微信中切换一次该账号以捕获密钥</string>
+    <string name="accounts_uin_source">uin 来源：%1$s</string>
+    <string name="accounts_loading_avatar">头像加载中…</string>
+    <string name="accounts_hist">历史账号</string>
+
+    <!-- 数据库页 -->
+    <string name="databases_title">数据库</string>
+    <string name="databases_total">共 %1$d 个库</string>
+    <string name="databases_total_size">总计 %1$s</string>
+    <string name="databases_selected">已选 %1$d</string>
+    <string name="databases_encrypted">加密</string>
+    <string name="databases_plaintext">明文</string>
+    <string name="databases_wal">WAL</string>
+    <string name="databases_empty_title">该账号下没有可导出的数据库</string>
+    <string name="databases_empty_desc">请确认微信已登录并使用过该账号</string>
+    <string name="databases_export">导出</string>
+    <string name="databases_export_n">已选 %1$d · 共 %2$s · 导出</string>
+    <string name="databases_sort">排序</string>
+    <string name="databases_sort_name">按名称</string>
+    <string name="databases_sort_size">按大小</string>
+    <string name="databases_no_key">密钥未捕获</string>
+    <string name="databases_need_key_hint">该账号的密钥还没拿到：打开一次微信即可（模块会在微信启动时自动捕获，之后本账号全部加密库都能解密）。</string>
+    <string name="databases_search">搜索数据库（名称或用途，如 聊天 / 朋友圈 / 支付）</string>
+    <string name="databases_search_clear">清空</string>
+    <string name="databases_search_result">命中 %1$d / 共 %2$d 个库</string>
+    <string name="databases_search_empty">没有匹配的数据库</string>
+    <string name="databases_search_empty_desc">试试更短的关键词，例如「聊天」「朋友圈」「支付」「索引」。</string>
+    <string name="databases_output_to">导出到：%1$s</string>
+
+    <!-- 导出页 -->
+    <string name="export_title">导出</string>
+    <string name="export_files_progress">%1$d / %2$d 个文件</string>
+    <string name="export_bytes">%1$s / %2$s</string>
+    <string name="export_speed">%1$s/s</string>
+    <string name="export_elapsed">已用 %1$s</string>
+    <string name="export_eta">剩余约 %1$s</string>
+    <string name="export_stat_done">成功</string>
+    <string name="export_stat_failed">失败</string>
+    <string name="export_stat_pending">待处理</string>
+    <string name="export_open_dir">打开导出目录</string>
+    <string name="export_open_dir_hint">用系统选择器挑一个应用打开这个文件夹</string>
+    <string name="export_retry_failed">重试失败项</string>
+    <string name="export_cancel">取消</string>
+    <string name="export_done_title">导出完成</string>
+    <string name="export_done_summary">成功 %1$d · 失败 %2$d · 共 %3$s · 耗时 %4$s</string>
+    <string name="export_verified">已校验</string>
+    <string name="export_dir_path">目录：%1$s</string>
+
+    <!-- 设置页 -->
+    <string name="settings_title">设置</string>
+    <string name="settings_section_output">导出位置</string>
+    <string name="settings_output_root">导出根目录</string>
+    <string name="settings_output_default">默认目录</string>
+    <string name="settings_output_hint">真实文件会写到「根目录 / 账号标识 / xxx.db」。改填 /Download 就会导出到 /Download/wxid_xxx/ 下。</string>
+    <string name="settings_output_apply">应用</string>
+    <string name="settings_output_reset">恢复默认</string>
+    <string name="settings_output_use_default">使用默认目录</string>
+    <string name="settings_all_files_title">需要「所有文件访问」权限</string>
+    <string name="settings_all_files_desc">Android 11+ 要往内部存储的自定义目录写文件，必须授予此权限。未授予时会自动退到应用私有目录。</string>
+    <string name="settings_all_files_grant">去授权</string>
+    <string name="settings_all_files_ok">已获得「所有文件访问」权限</string>
+    <string name="settings_fallback_warning">当前没有「所有文件访问」权限，导出会落到应用私有目录：%1$s</string>
+    <string name="settings_section_defaults">导出默认</string>
+    <string name="settings_export_wal">一并导出 -wal / -shm</string>
+    <string name="settings_verify">导出后校验</string>
+    <string name="settings_parallel">并行任务数</string>
+    <string name="settings_section_appearance">外观</string>
+    <string name="settings_theme">主题</string>
+    <string name="settings_theme_system">跟随系统</string>
+    <string name="settings_theme_light">浅色</string>
+    <string name="settings_theme_dark">深色</string>
+    <string name="settings_dynamic_color">动态取色</string>
+    <string name="settings_reduce_motion">减少动效</string>
+    <string name="settings_section_language">语言</string>
+    <string name="settings_lang_system">跟随系统</string>
+    <string name="settings_lang_zh">简体中文</string>
+    <string name="settings_lang_en">English</string>
+    <string name="settings_section_diag">诊断</string>
+    <string name="settings_diag_loopback">模块通道</string>
+    <string name="settings_diag_connected">已连接 %1$s</string>
+    <string name="settings_diag_disconnected">未连接</string>
+    <string name="settings_selftest">运行解密自检</string>
+    <string name="settings_reset">重置全部设置</string>
+    <string name="settings_section_about">关于</string>
+    <string name="settings_version">版本 %1$s</string>
+    <string name="settings_disclaimer">本工具仅用于导出你本人设备上、你本人账号的数据。请遵守当地法律法规并妥善保管导出内容。</string>
+
+    <!-- 反馈与错误 -->
+    <string name="err_xposed_inactive">Xposed 模块未激活</string>
+    <string name="err_xposed_inactive_desc">请到 LSPosed 管理器启用本模块、作用域勾选「微信」，然后强制停止微信并重新打开。</string>
+    <string name="err_no_dir_permission">无法写入导出目录</string>
+    <string name="err_no_dir_permission_desc">请授予「所有文件访问」权限，或把导出根目录改成应用私有目录。</string>
+
+    <!-- 页脚 -->
+    <string name="footer_notice">仅供学习与个人数据导出使用，请勿用于非法用途</string>
+    <string name="open_folder_title">选择打开方式</string>
+    <string name="export_need_permission">导出目录需要「所有文件访问」权限</string>
+    <string name="export_failed_read">读取失败</string>
+    <string name="export_failed_decrypt">模块侧解密失败</string>
+    <string name="export_failed_decrypt_root">应用内解密失败</string>
+    <string name="export_failed_dir">无法创建导出目录（缺少「所有文件访问」权限）</string>
+    <string name="selftest_no_account">没有可用账号</string>
+    <string name="selftest_no_encrypted">该账号没有加密库（无需解密）</string>
+    <string name="selftest_account">账号：%1$s</string>
+    <string name="selftest_target">测试库：%1$s（%2$s）</string>
+    <string name="selftest_ok">✅ 明文导出成功：%1$s，耗时 %2$d ms</string>
+    <string name="selftest_ok_head">   文件头 %1$s（SQLite format 3 ✔）</string>
+    <string name="selftest_not_sqlite">⚠️ 导出成功但文件头不是 SQLite：%1$s</string>
+    <string name="selftest_skipped">⊘ 跳过：%1$s</string>
+    <string name="selftest_failed">❌ 失败：%1$s</string>
+    <string name="selftest_head">   文件头 %1$s</string>
+    <string name="selftest_error">❌ 自检异常：%1$s</string>
+    <string name="root_no_device_id">读不到设备标识（KeyInfo.bin），无法离线推导密钥</string>
+    <string name="root_no_uin">恢复不出该账号的 uin，无法离线推导密钥。若该账号是很早以前或迁移过来的，它的目录名可能不符合常规命名，此时 Root 模式处理不了它 —— 请改用 Xposed 模式</string>
+    <string name="root_no_key">无法推导该账号的密钥</string>
+    <string name="root_denied">未获得 root 权限</string>
+
+    <string name="mode_title">选择提取方式</string>
+    <string name="mode_note">两种方式导出结果完全一致，选哪个都可以。</string>
+    <string name="mode_root">Root 模式</string>
+    <string name="mode_root_desc">密钥由设备标识 + uin 离线推导，App 内解密。\n不依赖微信进程，不用重启微信。</string>
+    <string name="mode_root_tag">可用</string>
+    <string name="mode_xposed">Xposed 模式</string>
+    <string name="mode_xposed_desc">解密交给微信自己做，参数零猜测。\n需要微信正在运行。</string>
+    <string name="mode_xposed_tag">已激活</string>
+    <string name="mode_only_root">只有 Root 可用，已自动选择</string>
+    <string name="mode_only_xposed">只有 Xposed 可用，已自动选择</string>
+    <string name="mode_switch">切换提取方式</string>
+    <string name="check_card_root">Root 权限</string>
+    <string name="check_root_ok_desc">已取得 root，可离线推导密钥并解密</string>
+    <string name="check_root_denied_desc">未取得 root 权限（还没授权或已拒绝）</string>
+    <string name="root_blocked">已获得 root，但读不到微信数据目录（请检查 KernelSU/Magisk 的作用域设置）</string>
+    <string name="export_failed_dir_io">无法创建导出目录（存储暂时不可写，请重试）</string>
+    <string name="root_not_granted">尚未授权 root，请在 KernelSU / Magisk 中为本应用开启权限</string>
+    <string name="check_open_wechat">打开微信</string>
+    <string name="check_wechat_not_running">微信还没运行：点下面按钮打开微信，Hook 会在微信启动后自动加载</string>
+    <string name="check_activate_module">去激活模块</string>
+    <string name="check_module_inactive">模块未激活：请在 LSPosed 里启用本模块，并确认作用域包含微信</string>
+    <string name="author_title">作者</string>
+    <string name="app_description">WeChat DB Dump · 微信数据库明文导出\n作者  WeChat: RSCompanyCEO  QQ: 1043695584  Telegram: ryf5584  GitHub: RYF5584</string>
+    <string name="author_copied">已复制 %1$s</string>
+    <string name="export_failed_timeout">导出超时（该数据库可能正被微信写入，请重试）</string>
+    <string name="export_skip_optional">非必要库（缓存/统计/可重建索引），已自动跳过</string>
+    <string name="export_skipped_note">已跳过 %1$d 个非必要库。它们的内容可由主库重建，不影响数据完整性。</string>
+    <string name="export_stat_skipped">跳过</string>
+</resources>

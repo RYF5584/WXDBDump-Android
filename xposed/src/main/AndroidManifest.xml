@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application>
+
+        <!-- Xposed / LSPosed module declaration, merged into the final APK -->
+
+        <meta-data
+            android:name="xposedmodule"
+            android:value="true" />
+
+        <meta-data
+            android:name="xposeddescription"
+            android:value="@string/xposed_description" />
+
+        <!-- 93 marks frameworks that support xposedscope, such as LSPosed -->
+        <meta-data
+            android:name="xposedminversion"
+            android:value="93" />
+
+        <!-- Recommended scope: LSPosed pre-selects com.tencent.mm -->
+        <meta-data
+            android:name="xposedscope"
+            android:resource="@array/xposed_scope" />
+
+        <!--
+          assets/xposed_init names the entry class. YukiHookAPI's KSP processor generates that
+          class into build/, so this file is not generated and is maintained by hand; keep the
+          name in sync with the @InjectYukiHookWithXposed class in HookEntry.kt.
+        -->
+
+    </application>
+
+</manifest>
