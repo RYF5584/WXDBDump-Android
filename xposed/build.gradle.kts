@@ -43,7 +43,7 @@ android {
 dependencies {
     compileOnly(libs.xposed.api)
     // Generated code carries @androidx.annotation.Keep, needed at compile time
-    compileOnly("androidx.annotation:annotation:1.8.1")
+    compileOnly("androidx.annotation:annotation:1.11.0")
 
     // Engine, pure Java, shared by both modes
     implementation(project(":payload"))
@@ -56,7 +56,7 @@ dependencies {
     // KSP processor generating the Xposed entry implementation
     ksp(libs.yukihookapi.ksp.xposed)
 
-    implementation("org.jetbrains.kotlin:kotlin-stdlib:2.1.10")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib:2.4.21")
 }
 
 ksp {
